@@ -1,58 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Download My App</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background: linear-gradient(135deg, #2193b0, #6dd5ed);
-      color: white;
       margin: 0;
-      padding: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #141e30, #243b55);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      justify-content: center;
+      align-items: center;
     }
-    .container {
-      margin-top: 100px;
+
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 40px 30px;
+      max-width: 500px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      animation: fadeIn 0.8s ease-out;
     }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
     h1 {
-      font-size: 32px;
+      font-size: 30px;
+      margin-bottom: 12px;
+      color: #fff;
     }
+
+    p {
+      font-size: 16px;
+      color: #ddd;
+      margin-bottom: 28px;
+    }
+
     .download-btn {
       display: inline-block;
-      margin-top: 20px;
-      padding: 15px 30px;
+      padding: 16px 36px;
       font-size: 18px;
       font-weight: bold;
       color: white;
-      background: #ff4b2b;
-      border-radius: 8px;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      border-radius: 50px;
       text-decoration: none;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-      transition: background 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4);
+      transition: 0.3s ease;
     }
+
     .download-btn:hover {
-      background: #ff416c;
+      background: linear-gradient(135deg, #0072ff, #00c6ff);
+      box-shadow: 0 6px 20px rgba(0,114,255,0.6);
+      transform: translateY(-2px);
     }
+
     footer {
-      margin-top: 50px;
-      font-size: 14px;
-      opacity: 0.8;
+      margin-top: 20px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.7);
     }
   </style>
 </head>
 <body>
-  <div class="container">
+
+  <div class="card">
     <h1>Download My App</h1>
-    <p>Click below to download the latest version of the app.</p>
+    <p>Get the latest version of our Android app by clicking the button below.</p>
     
-    <!-- Replace APK file link below with your hosted file URL -->
-    <a class="download-btn" href="./app-release.apk" download>📥 Download APK</a>
-    
+    <!-- Replace with your hosted APK URL -->
+    <a class="download-btn" href="./app-release.apk" download> Download APK</a>
+
     <footer>
       &copy; 2025 My App. All rights reserved.
     </footer>
   </div>
+
 </body>
 </html>
