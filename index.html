@@ -1,89 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Download My App</title>
-  <style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SkillBase - Connect with Skilled Professionals</title>
+<style>
+    * {margin:0; padding:0; box-sizing:border-box;}
     body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: linear-gradient(135deg, #141e30, #243b55);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      justify-content: center;
-      align-items: center;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background: #f5f7fa;
+        color: #333;
+        line-height: 1.6;
     }
-
-    .card {
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(12px);
-      border-radius: 16px;
-      padding: 40px 30px;
-      max-width: 500px;
-      text-align: center;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-      animation: fadeIn 0.8s ease-out;
+    header {
+        background: linear-gradient(135deg, #0061ff, #60efff);
+        color: white;
+        text-align: center;
+        padding: 40px 20px;
     }
-
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
+    header h1 {
+        font-size: 40px;
+        font-weight: 700;
+        margin-bottom: 8px;
     }
-
-    h1 {
-      font-size: 30px;
-      margin-bottom: 12px;
-      color: #fff;
+    header p { font-size: 18px; opacity: 0.9; }
+    nav {
+        margin-top: 15px;
     }
+    nav a {
+        color: white;
+        margin: 0 14px;
+        text-decoration: none;
+        font-weight: 500;
+    }
+    nav a:hover { text-decoration: underline; }
 
+    section {
+        padding: 60px 20px;
+        max-width: 1100px;
+        margin: auto;
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #0061ff;
+    }
     p {
-      font-size: 16px;
-      color: #ddd;
-      margin-bottom: 28px;
+        text-align: center;
+        max-width: 800px;
+        margin: auto;
+        margin-bottom: 15px;
     }
 
-    .download-btn {
-      display: inline-block;
-      padding: 16px 36px;
-      font-size: 18px;
-      font-weight: bold;
-      color: white;
-      background: linear-gradient(135deg, #00c6ff, #0072ff);
-      border-radius: 50px;
-      text-decoration: none;
-      box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4);
-      transition: 0.3s ease;
+    /* Feature Cards */
+    .features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 30px;
     }
-
-    .download-btn:hover {
-      background: linear-gradient(135deg, #0072ff, #00c6ff);
-      box-shadow: 0 6px 20px rgba(0,114,255,0.6);
-      transform: translateY(-2px);
+    .feature-card {
+        background: white;
+        padding: 25px;
+        flex: 1 1 250px;
+        max-width: 280px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
+    .feature-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 26px rgba(0,0,0,0.12);
+    }
+    .feature-card h3 {
+        color: #333;
+        margin-bottom: 10px;
+    }
+    .btn {
+        display: inline-block;
+        padding: 14px 28px;
+        background: linear-gradient(135deg, #00b09b, #96c93d);
+        color: white;
+        font-weight: bold;
+        border-radius: 30px;
+        text-decoration: none;
+        margin-top: 15px;
+        transition: background 0.3s ease;
+    }
+    .btn:hover {
+        background: linear-gradient(135deg, #96c93d, #00b09b);
+    }
+    #contact p {
+        margin: 6px 0;
+        justify-content: center;
+        align-items: center;
+    }
     footer {
-      margin-top: 20px;
-      font-size: 13px;
-      color: rgba(255, 255, 255, 0.7);
+        background: #222;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 14px;
     }
-  </style>
+    footer a {
+        color: #60efff;
+        text-decoration: none;
+    }
+    footer a:hover {
+        text-decoration: underline;
+    }
+    @media(max-width: 768px) {
+        .features {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+</style>
 </head>
 <body>
 
-  <div class="card">
-    <h1>Download My App</h1>
-    <p>Get the latest version of our Android app by clicking the button below.</p>
-    
-    <!-- Replace with your hosted APK URL -->
-    <a class="download-btn" href="./app-release.apk" download> Download APK</a>
+<header>
+  <h1>SkillBase</h1>
+  <p>Connecting Skilled Individuals Directly with Customers</p>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#how">How It Works</a>
+    <a href="#workers">For Workers</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-    <footer>
-      &copy; 2025 My App. All rights reserved.
-    </footer>
+<section id="about">
+  <h2>About SkillBase</h2>
+  <p>SkillBase is your trusted platform to find skilled professionals across all trades — electricians, plumbers, painters, cleaners, and more. Unlike conventional services managed by companies, SkillBase empowers independent skilled individuals to connect directly with customers.</p>
+  <p>Our mission is to create opportunities for every skilled person to showcase their talent, build their reputation, and get hired without middlemen taking the bigger cut.</p>
+</section>
+
+<section id="how">
+  <h2>How It Works</h2>
+  <div class="features">
+    <div class="feature-card">
+      <h3>1. Post a Service</h3>
+      <p>Customers post what they need — from home repairs to custom projects.</p>
+    </div>
+    <div class="feature-card">
+      <h3>2. Get Matched</h3>
+      <p>Skilled professionals respond with offers based on your request.</p>
+    </div>
+    <div class="feature-card">
+      <h3>3. Hire & Pay</h3>
+      <p>Choose the best worker, make secure payments, and get the work done.</p>
+    </div>
+    <div class="feature-card">
+      <h3>4. Review & Rate</h3>
+      <p>Share feedback to help grow the worker’s reputation.</p>
+    </div>
   </div>
+</section>
+
+<section id="workers">
+  <h2>For Skilled Workers</h2>
+  <p>Are you a skilled individual looking for opportunities? Join SkillBase and get direct access to customers in need of your services. Create your profile, showcase your portfolio, and grow through ratings & reviews.</p>
+  <p><a class="btn" href="#contact">Register as a Worker</a></p>
+</section>
+
+<section id="download">
+  <h2>Get the App</h2>
+  <p>Download SkillBase and start connecting today.</p>
+  <a class="btn" href="./app-release.apk" download> Download APK</a>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p>Email: <a href="mailto:thakorrajta859@gmail.com">thakorrajta859@gmail.com</a></p>
+  <p>Phone: +91 9054896753</p>
+  <p>Address: Ahmedabad, Gujarat, India</p>
+</section>
+
+<footer>
+  &copy; 2025 SkillBase | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms.html">Terms</a>
+</footer>
 
 </body>
 </html>
