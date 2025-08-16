@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SkillBase - Policies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #4361ee;
             --primary-dark: #3a56d4;
+            --primary-light: #eef7ff;
             --secondary: #f8f9fa;
             --text: #212529;
             --light-text: #6c757d;
@@ -15,6 +17,8 @@
             --success: #28a745;
             --warning: #ffc107;
             --danger: #dc3545;
+            --razorpay: #2B2F89;
+            --section-bg: #f9fbfd;
         }
         
         * {
@@ -27,7 +31,8 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--text);
-            background-color: #f5f7fb;
+            background: linear-gradient(135deg, #f5f7fb 0%, #e6eeff 100%);
+            min-height: 100vh;
         }
         
         .container {
@@ -39,11 +44,12 @@
         header {
             background: linear-gradient(135deg, var(--primary), #3a0ca3);
             color: white;
-            padding: 2rem 0;
+            padding: 3rem 0;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
             position: relative;
             overflow: hidden;
+            border-radius: 0 0 20px 20px;
         }
         
         header::before {
@@ -58,80 +64,166 @@
         }
         
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 0.5rem;
             position: relative;
             z-index: 2;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .logo-icon {
+            background: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        
+        .logo-icon i {
+            color: var(--primary);
+            font-size: 1.8rem;
         }
         
         .last-updated {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             opacity: 0.9;
             position: relative;
             z-index: 2;
+            background: rgba(255,255,255,0.15);
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-top: 10px;
+        }
+        
+        .tabs-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            padding: 15px;
+            margin: 2rem auto;
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
         }
         
         .tabs {
             display: flex;
             justify-content: center;
-            margin: 2rem 0;
-            position: relative;
-            z-index: 10;
+            gap: 10px;
         }
         
         .tab-btn {
             background: white;
-            border: none;
-            padding: 12px 24px;
-            margin: 0 5px;
-            font-size: 1rem;
+            border: 2px solid var(--primary);
+            padding: 14px 28px;
+            margin: 0;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
-            border-radius: 30px;
+            border-radius: 50px;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            color: var(--primary);
+            flex: 1;
+            max-width: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .tab-btn:hover {
+            background: var(--primary-light);
+            transform: translateY(-3px);
         }
         
         .tab-btn.active {
             background: var(--primary);
             color: white;
             transform: translateY(-3px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 15px rgba(67, 97, 238, 0.3);
+            border-color: var(--primary);
         }
         
         .policy-container {
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            padding: 2.5rem;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            padding: 3rem;
             margin-bottom: 2rem;
             position: relative;
             z-index: 5;
+            border: 1px solid #eaefff;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-icon {
+            background: var(--primary-light);
+            color: var(--primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
         }
         
         h2 {
             color: var(--primary);
-            margin: 1.5rem 0 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--border);
+            margin: 0;
+            padding-bottom: 0;
+            border: none;
+            font-size: 1.8rem;
         }
         
         h3 {
             color: var(--primary-dark);
-            margin: 1.2rem 0 0.8rem;
+            margin: 1.8rem 0 1rem;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h3 i {
+            color: var(--primary);
         }
         
         p {
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
+            color: #444;
+            line-height: 1.7;
         }
         
         ul {
-            padding-left: 1.5rem;
-            margin-bottom: 1.5rem;
+            padding-left: 1.8rem;
+            margin-bottom: 1.8rem;
         }
         
         li {
-            margin-bottom: 0.7rem;
+            margin-bottom: 0.9rem;
+            line-height: 1.7;
         }
         
         strong {
@@ -141,59 +233,101 @@
         .highlight-box {
             background: #eef7ff;
             border-left: 4px solid var(--primary);
-            padding: 1.2rem;
-            margin: 1.5rem 0;
-            border-radius: 0 8px 8px 0;
+            padding: 1.5rem;
+            margin: 1.8rem 0;
+            border-radius: 0 12px 12px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .highlight-box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
         }
         
         .refund-process {
             display: flex;
             flex-wrap: wrap;
-            margin: 1.5rem 0;
-            gap: 15px;
+            margin: 1.8rem 0;
+            gap: 20px;
         }
         
         .process-step {
             flex: 1;
-            min-width: 200px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 1.2rem;
+            min-width: 220px;
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
             border: 1px solid var(--border);
             position: relative;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .process-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(67, 97, 238, 0.15);
         }
         
         .step-number {
             position: absolute;
-            top: -12px;
-            left: 15px;
+            top: -15px;
+            left: 20px;
             background: var(--primary);
             color: white;
-            width: 24px;
-            height: 24px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
         }
         
         .contact-info {
             background: #f1f8ff;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
             border: 1px dashed var(--primary);
+            position: relative;
+        }
+        
+        .contact-info::before {
+            content: "\f075";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: rgba(67, 97, 238, 0.1);
         }
         
         .contact-info p {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-info i {
+            color: var(--primary);
+            width: 24px;
         }
         
         a {
             color: var(--primary);
             text-decoration: none;
-            transition: color 0.2s;
+            transition: all 0.3s ease;
+            font-weight: 600;
         }
         
         a:hover {
@@ -205,33 +339,106 @@
             background: #343a40;
             color: white;
             text-align: center;
-            padding: 1.5rem 0;
-            margin-top: 2rem;
+            padding: 2.5rem 0;
+            margin-top: 3rem;
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .payment-partners {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin: 1.5rem 0;
         }
         
         .razorpay-badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             background: white;
-            color: var(--primary);
-            padding: 8px 15px;
-            border-radius: 30px;
-            font-weight: 600;
-            margin-top: 1rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            color: var(--razorpay);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            margin-top: 0.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            gap: 10px;
+        }
+        
+        .razorpay-logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: -0.5px;
         }
         
         .update-notice {
             background: #fff8e6;
             border-left: 4px solid var(--warning);
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            border-radius: 0 8px 8px 0;
-            font-size: 0.9rem;
+            padding: 1.2rem;
+            margin-bottom: 2rem;
+            border-radius: 0 12px 12px 0;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .update-notice i {
+            color: var(--warning);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.4);
+            z-index: 100;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .policy-badge {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-left: 10px;
+        }
+        
+        .razorpay-info {
+            background: #f9f9ff;
+            border: 1px solid #e0e4ff;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
         }
         
         @media (max-width: 768px) {
             .policy-container {
-                padding: 1.5rem;
+                padding: 1.8rem;
             }
             
             .refund-process {
@@ -239,7 +446,21 @@
             }
             
             h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab-btn {
+                max-width: 100%;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
             }
         }
     </style>
@@ -247,120 +468,150 @@
 <body>
     <header>
         <div class="container">
-            <h1>SkillBase Policies</h1>
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h1>SkillBase Policies</h1>
+            </div>
             <p class="last-updated">Last updated: August 15, 2025</p>
         </div>
     </header>
     
     <div class="container">
-        <div class="tabs">
-            <button class="tab-btn active" onclick="showPolicy('privacy')">Privacy Policy</button>
-            <button class="tab-btn" onclick="showPolicy('terms')">Terms & Conditions</button>
+        <div class="tabs-container">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="showPolicy('privacy')">
+                    <i class="fas fa-shield-alt"></i> Privacy Policy
+                </button>
+                <button class="tab-btn" onclick="showPolicy('terms')">
+                    <i class="fas fa-file-contract"></i> Terms & Conditions
+                </button>
+            </div>
         </div>
         
         <div class="update-notice">
-            <strong>Update Notice:</strong> We've added detailed refund processing information to comply with Razorpay requirements and provide better transparency for our users.
+            <i class="fas fa-exclamation-circle"></i>
+            <div>
+                <strong>Important Update:</strong> We've enhanced our payment and refund policies to comply with Razorpay requirements and provide better transparency for our users. All transactions are securely processed through Razorpay.
+            </div>
         </div>
         
         <!-- Privacy Policy -->
         <div id="privacy-policy" class="policy-container">
-            <h2>Privacy Policy</h2>
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h2>Privacy Policy</h2>
+            </div>
             
-            <h2>Introduction</h2>
+            <h3><i class="fas fa-info-circle"></i> Introduction</h3>
             <p>
-                At SkillBase, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your data when you use our services.
+                At SkillBase, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your data when you use our services. We partner with Razorpay for secure payment processing.
             </p>
 
-            <h2>Information We Collect</h2>
+            <h3><i class="fas fa-database"></i> Information We Collect</h3>
             <p>We may collect the following types of personal information:</p>
             <ul>
                 <li><strong>Personal Identification Information:</strong> Name, email address, phone number, profile details, and any information you provide during registration.</li>
                 <li><strong>Usage Information:</strong> Data relating to your use of our platform including searches, service requests, communications, and preferences.</li>
-                <li><strong>Payment Information:</strong> Payment transaction details used for processing payments securely through third-party gateways.</li>
+                <li><strong>Payment Information:</strong> Payment transaction details used for processing payments securely through Razorpay.</li>
                 <li><strong>Device and Log Information:</strong> IP address, device type, operating system, browser type, and usage logs to enhance service performance.</li>
             </ul>
 
-            <h2>How We Use Your Information</h2>
+            <h3><i class="fas fa-cogs"></i> How We Use Your Information</h3>
             <p>Your information is used for the following purposes:</p>
             <ul>
                 <li>To provide and maintain our platform and services.</li>
-                <li>To process transactions and payments securely.</li>
+                <li>To process transactions and payments securely through Razorpay.</li>
                 <li>To communicate with you regarding service updates, bookings, support, and marketing (with your consent where required).</li>
                 <li>To improve our services, personalize user experience, and perform analytics.</li>
                 <li>To comply with legal obligations and enforce our terms and policies.</li>
             </ul>
 
-            <h2>Sharing and Disclosure</h2>
+            <h3><i class="fas fa-share-alt"></i> Sharing and Disclosure</h3>
             <p>We do not sell your personal data. We may share your information with:</p>
             <ul>
-                <li><strong>Service Providers:</strong> Trusted third-party partners who assist in payment processing, service delivery, analytics, and hosting.</li>
+                <li><strong>Payment Processors:</strong> Razorpay Software Private Limited for payment processing as per their <a href="https://razorpay.com/privacy-policy/" target="_blank">Privacy Policy</a>.</li>
+                <li><strong>Service Providers:</strong> Trusted third-party partners who assist in service delivery, analytics, and hosting.</li>
                 <li><strong>Legal Compliance:</strong> Law enforcement, regulators, or required parties as per legal processes.</li>
                 <li><strong>With your consent:</strong> When you explicitly agree to share information for marketing or other purposes.</li>
             </ul>
 
-            <h2>Data Security</h2>
-            <p>We implement reasonable technical and organizational measures to protect your personal information from unauthorized access, disclosure, alteration, and destruction. All payment transactions are handled through secure third-party gateways compliant with industry standards.</p>
+            <h3><i class="fas fa-lock"></i> Data Security</h3>
+            <p>We implement reasonable technical and organizational measures to protect your personal information from unauthorized access, disclosure, alteration, and destruction.</p>
+            
+            <div class="razorpay-info">
+                <h3><i class="fas fa-credit-card"></i> Payment Processing by Razorpay</h3>
+                <p>All payment transactions are processed securely through Razorpay's PCI-DSS compliant payment gateway. We do not store your full credit card details on our servers.</p>
+                <p>Razorpay may collect, use, and share your payment information as described in their <a href="https://razorpay.com/privacy-policy/" target="_blank">Privacy Policy</a> and <a href="https://razorpay.com/terms/" target="_blank">Terms of Service</a>.</p>
+            </div>
             
             <div class="highlight-box">
-                <h3>Payment & Refund Information</h3>
-                <p>All payment transactions are processed securely through Razorpay's PCI-DSS compliant payment gateway. We do not store your full credit card details on our servers.</p>
-                <p><strong>Refund Processing:</strong> Approved refunds are processed within <strong>7-14 business days</strong> from the date of approval. The exact processing time may vary depending on your financial institution.</p>
+                <h3><i class="fas fa-sync-alt"></i> Refund Processing</h3>
+                <p><strong>Approved refunds</strong> are processed within <strong>7-14 business days</strong> from the date of approval. The exact processing time may vary depending on your financial institution.</p>
+                <p>All refunds are processed through Razorpay's secure payment gateway. For refund status, please contact our support team or refer to your Razorpay dashboard.</p>
             </div>
 
-            <h2>Your Choices and Rights</h2>
+            <h3><i class="fas fa-user-check"></i> Your Choices and Rights</h3>
             <ul>
                 <li>You may access, update, or request deletion of your personal data by contacting us.</li>
                 <li>You can opt-out of receiving marketing messages anytime.</li>
                 <li>We retain your data only as long as needed to provide services or comply with legal requirements.</li>
             </ul>
 
-            <h2>Cookies and Tracking Technologies</h2>
+            <h3><i class="fas fa-cookie-bite"></i> Cookies and Tracking Technologies</h3>
             <p>Our website may use cookies and similar tracking technologies to enhance user experience. You can manage your cookie preferences through your browser settings.</p>
 
-            <h2>Children’s Privacy</h2>
+            <h3><i class="fas fa-child"></i> Children’s Privacy</h3>
             <p>Our platform is not intended for children under the age of 13. We do not knowingly collect personal information from children below this age. If you are a parent or guardian and believe your child has provided us information, please contact us immediately.</p>
 
-            <h2>Changes to This Privacy Policy</h2>
+            <h3><i class="fas fa-history"></i> Changes to This Privacy Policy</h3>
             <p>We may update this privacy policy from time to time. We encourage you to review this page periodically. Changes will be posted here with an updated revision date.</p>
 
             <div class="contact-info">
-                <h2>Contact Us</h2>
-                <p>If you have questions about this Privacy Policy, please contact us at:</p>
-                <p>Email: <a href="mailto:thakorrajta859@gmail.com">thakorrajta859@gmail.com</a></p>
-                <p>Phone: +91 9054896753</p>
-                <p>Address: Ahmedabad, Gujarat, India</p>
+                <h3><i class="fas fa-headset"></i> Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:thakorrajta859@gmail.com">thakorrajta859@gmail.com</a></p>
+                <p><i class="fas fa-phone"></i> Phone: +91 9426927945</p>
+                <p><i class="fas fa-map-marker-alt"></i> Address: Ahmedabad, Gujarat, India</p>
             </div>
         </div>
         
         <!-- Terms & Conditions -->
         <div id="terms-policy" class="policy-container" style="display:none;">
-            <h2>Terms & Conditions</h2>
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-file-contract"></i>
+                </div>
+                <h2>Terms & Conditions</h2>
+            </div>
             
-            <h2>Introduction</h2>
+            <h3><i class="fas fa-info-circle"></i> Introduction</h3>
             <p>
-                These Terms & Conditions ("Terms") govern your access to and use of the SkillBase mobile application, website, and related services (collectively, the "Platform").
-                By accessing or using SkillBase, you agree to comply with and be bound by these Terms. If you do not agree, please do not use our Platform.
+                These Terms & Conditions ("Terms") govern your access to and use of the SkillBase mobile application, website, and related services (collectively, the "Platform"). By accessing or using SkillBase, you agree to comply with and be bound by these Terms. If you do not agree, please do not use our Platform.
             </p>
 
-            <h2>Definitions</h2>
+            <h3><i class="fas fa-book"></i> Definitions</h3>
             <ul>
-                <li><strong>"We", "Us", "Our"</strong>: Refers to SkillBase and its operators.</li>
-                <li><strong>"You", "User"</strong>: Any person accessing or using our Platform, including customers and service providers.</li>
-                <li><strong>"Service Provider" or "Worker"</strong>: An independent skilled individual registered on SkillBase to offer services.</li>
-                <li><strong>"Customer"</strong>: A person using the Platform to request and hire services.</li>
+                <li><strong>"We", "Us", "Our":</strong> Refers to SkillBase and its operators.</li>
+                <li><strong>"You", "User":</strong> Any person accessing or using our Platform, including customers and service providers.</li>
+                <li><strong>"Service Provider" or "Worker":</strong> An independent skilled individual registered on SkillBase to offer services.</li>
+                <li><strong>"Customer":</strong> A person using the Platform to request and hire services.</li>
+                <li><strong>"Razorpay":</strong> Our authorized payment processing partner, Razorpay Software Private Limited.</li>
             </ul>
 
-            <h2>User Eligibility</h2>
+            <h3><i class="fas fa-user-check"></i> User Eligibility</h3>
             <p>
                 You must be at least 18 years old to use SkillBase. By using the Platform, you represent that you have the legal capacity to enter into a binding contract.
             </p>
 
-            <h2>Services Provided</h2>
+            <h3><i class="fas fa-concierge-bell"></i> Services Provided</h3>
             <p>
                 SkillBase acts as a platform to connect Customers with independent skilled Workers. We do not employ Workers, and are not responsible for the quality, safety, or legality of the services provided by them. All agreements for services are between you and the Worker.
             </p>
 
-            <h2>User Responsibilities</h2>
+            <h3><i class="fas fa-clipboard-list"></i> User Responsibilities</h3>
             <ul>
                 <li>Provide accurate, truthful, and up-to-date information when registering.</li>
                 <li>Maintain the confidentiality of your account login details.</li>
@@ -368,17 +619,19 @@
                 <li>Refrain from posting offensive, illegal, or fraudulent content.</li>
             </ul>
 
-            <h2>Payments</h2>
-            <p>
-                Payments are processed through secure third-party payment gateways integrated into SkillBase. You agree to provide accurate payment information and authorize us to charge you for services booked. We are not liable for any payment disputes between Customers and Workers.
-            </p>
-
-            <h2>Cancellation & Refund Policy</h2>
+            <div class="razorpay-info">
+                <h3><i class="fas fa-money-check-alt"></i> Payment Processing</h3>
+                <p>All payments are securely processed through Razorpay Software Private Limited ("Razorpay"). By using our payment services, you agree to Razorpay's <a href="https://razorpay.com/terms/" target="_blank">Terms of Service</a> and <a href="https://razorpay.com/privacy-policy/" target="_blank">Privacy Policy</a>.</p>
+                <p>We are not liable for any payment disputes between Customers and Workers that are processed through Razorpay. All transaction disputes must be resolved through Razorpay's dispute resolution process.</p>
+            </div>
+            
             <div class="highlight-box">
-                <h3>Refund Processing Time</h3>
+                <h3><i class="fas fa-exchange-alt"></i> Cancellation & Refund Policy</h3>
+                
+                <h4><i class="fas fa-clock"></i> Refund Processing Time</h4>
                 <p>All refund requests, when approved, will be processed within <strong>7-14 business days</strong> from the date of approval. The exact processing time may vary depending on the payment method and financial institution involved.</p>
                 
-                <h3>Refund Eligibility</h3>
+                <h4><i class="fas fa-check-circle"></i> Refund Eligibility</h4>
                 <ul>
                     <li>Refunds are subject to the respective Worker's policy and require their approval</li>
                     <li>SkillBase acts as a mediator but does not guarantee refunds</li>
@@ -414,17 +667,17 @@
                     </div>
                 </div>
                 
-                <h3>Non-refundable Items</h3>
+                <h4><i class="fas fa-ban"></i> Non-refundable Items</h4>
                 <ul>
                     <li>Services already completed</li>
                     <li>Platform convenience fees</li>
                     <li>Any costs already incurred by the Worker</li>
                 </ul>
                 
-                <p><strong>Note:</strong> SkillBase is not obligated to provide refunds unless required by applicable law. All refunds are processed through Razorpay's secure payment gateway.</p>
+                <p><strong>Note:</strong> SkillBase is not obligated to provide refunds unless required by applicable law. All refunds are processed through Razorpay's secure payment gateway according to their <a href="https://razorpay.com/refund-policy/" target="_blank">Refund Policy</a>.</p>
             </div>
 
-            <h2>Prohibited Activities</h2>
+            <h3><i class="fas fa-exclamation-triangle"></i> Prohibited Activities</h3>
             <ul>
                 <li>Misusing the Platform to spam or harass others.</li>
                 <li>Collecting personal information of other users without consent.</li>
@@ -432,47 +685,62 @@
                 <li>Attempting to bypass our systems or security measures.</li>
             </ul>
 
-            <h2>Intellectual Property</h2>
+            <h3><i class="fas fa-copyright"></i> Intellectual Property</h3>
             <p>
                 All content, trademarks, logos, and materials on the Platform are owned by or licensed to SkillBase. You may not copy, distribute, or modify any part of the Platform without prior written permission.
             </p>
 
-            <h2>Limitation of Liability</h2>
+            <h3><i class="fas fa-balance-scale"></i> Limitation of Liability</h3>
             <p>
-                To the maximum extent permitted by law, SkillBase shall not be liable for any direct, indirect, incidental, or consequential damages arising from your use of the Platform or services obtained through it.
+                To the maximum extent permitted by law, SkillBase shall not be liable for any direct, indirect, incidental, or consequential damages arising from your use of the Platform or services obtained through it. Razorpay is solely responsible for payment processing activities.
             </p>
 
-            <h2>Termination</h2>
+            <h3><i class="fas fa-ban"></i> Termination</h3>
             <p>
                 We may suspend or terminate your access to the Platform without notice if you violate these Terms or engage in illegal activities.
             </p>
 
-            <h2>Changes to the Terms</h2>
+            <h3><i class="fas fa-edit"></i> Changes to the Terms</h3>
             <p>
                 We reserve the right to update or modify these Terms at any time. Continued use of the Platform after changes means you accept the updated Terms.
             </p>
 
-            <h2>Governing Law</h2>
+            <h3><i class="fas fa-gavel"></i> Governing Law</h3>
             <p>
                 These Terms shall be governed by and construed in accordance with the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts in Ahmedabad, Gujarat.
             </p>
 
             <div class="contact-info">
-                <h2>Contact Us</h2>
-                <p>If you have any questions about these Terms & Conditions, contact us at:</p>
-                <p>Email: <a href="mailto:thakorrajta859@gmail.com">thakorrajta859@gmail.com</a></p>
-                <p>Phone: +91 9426927945</p>
-                <p>Address: Ahmedabad, Gujarat, India</p>
+                <h3><i class="fas fa-headset"></i> Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:thakorrajta859@gmail.com">thakorrajta859@gmail.com</a></p>
+                <p><i class="fas fa-phone"></i> Phone: +91 9426927945</p>
+                <p><i class="fas fa-map-marker-alt"></i> Address: Ahmedabad, Gujarat, India</p>
             </div>
         </div>
     </div>
     
     <footer>
         <div class="container">
-            &copy; 2025 SkillBase. All rights reserved.
-            <div class="razorpay-badge">Payment Processing by Razorpay</div>
+            <p>&copy; 2025 SkillBase. All rights reserved.</p>
+            
+            <div class="payment-partners">
+                <div class="razorpay-badge">
+                    <span class="razorpay-logo">RAZORPAY</span>
+                    <span>Payment Processing Partner</span>
+                </div>
+            </div>
+            
+            <p>
+                <a href="https://razorpay.com/privacy-policy/" target="_blank">Razorpay Privacy Policy</a> | 
+                <a href="https://razorpay.com/terms/" target="_blank">Razorpay Terms</a> | 
+                <a href="https://razorpay.com/refund-policy/" target="_blank">Razorpay Refund Policy</a>
+            </p>
         </div>
     </footer>
+    
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
     
     <script>
         function showPolicy(policyType) {
@@ -497,6 +765,24 @@
             // Scroll to top of policy section
             document.querySelector('.policy-container').scrollIntoView({ behavior: 'smooth' });
         }
+        
+        // Back to top functionality
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
         
         // Initialize the page with Privacy Policy visible
         window.onload = function() {
