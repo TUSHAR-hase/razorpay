@@ -1,77 +1,507 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Privacy Policy - SkillBase</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillBase - Policies</title>
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #f8f9fa;
+            --text: #212529;
+            --light-text: #6c757d;
+            --border: #dee2e6;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f5f7fb;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), #3a0ca3);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .last-updated {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .tab-btn {
+            background: white;
+            border: none;
+            padding: 12px 24px;
+            margin: 0 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .policy-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 5;
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin: 1.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+        
+        h3 {
+            color: var(--primary-dark);
+            margin: 1.2rem 0 0.8rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.7rem;
+        }
+        
+        strong {
+            color: var(--primary-dark);
+        }
+        
+        .highlight-box {
+            background: #eef7ff;
+            border-left: 4px solid var(--primary);
+            padding: 1.2rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .refund-process {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+            gap: 15px;
+        }
+        
+        .process-step {
+            flex: 1;
+            min-width: 200px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.2rem;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -12px;
+            left: 15px;
+            background: var(--primary);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .contact-info {
+            background: #f1f8ff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border: 1px dashed var(--primary);
+        }
+        
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+        
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+        
+        footer {
+            background: #343a40;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        
+        .razorpay-badge {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-top: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .update-notice {
+            background: #fff8e6;
+            border-left: 4px solid var(--warning);
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .policy-container {
+                padding: 1.5rem;
+            }
+            
+            .refund-process {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-<header><h1>Privacy Policy</h1></header>
+    <header>
+        <div class="container">
+            <h1>SkillBase Policies</h1>
+            <p class="last-updated">Last updated: August 15, 2025</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showPolicy('privacy')">Privacy Policy</button>
+            <button class="tab-btn" onclick="showPolicy('terms')">Terms & Conditions</button>
+        </div>
+        
+        <div class="update-notice">
+            <strong>Update Notice:</strong> We've added detailed refund processing information to comply with Razorpay requirements and provide better transparency for our users.
+        </div>
+        
+        <!-- Privacy Policy -->
+        <div id="privacy-policy" class="policy-container">
+            <h2>Privacy Policy</h2>
+            
+            <h2>Introduction</h2>
+            <p>
+                At SkillBase, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your data when you use our services.
+            </p>
 
-  <section class="container">
-  <p>Last updated: August 14, 2025</p>
+            <h2>Information We Collect</h2>
+            <p>We may collect the following types of personal information:</p>
+            <ul>
+                <li><strong>Personal Identification Information:</strong> Name, email address, phone number, profile details, and any information you provide during registration.</li>
+                <li><strong>Usage Information:</strong> Data relating to your use of our platform including searches, service requests, communications, and preferences.</li>
+                <li><strong>Payment Information:</strong> Payment transaction details used for processing payments securely through third-party gateways.</li>
+                <li><strong>Device and Log Information:</strong> IP address, device type, operating system, browser type, and usage logs to enhance service performance.</li>
+            </ul>
 
-  <h2>Introduction</h2>
-  <p>
-    At SkillBase, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your data when you use our services.
-  </p>
+            <h2>How We Use Your Information</h2>
+            <p>Your information is used for the following purposes:</p>
+            <ul>
+                <li>To provide and maintain our platform and services.</li>
+                <li>To process transactions and payments securely.</li>
+                <li>To communicate with you regarding service updates, bookings, support, and marketing (with your consent where required).</li>
+                <li>To improve our services, personalize user experience, and perform analytics.</li>
+                <li>To comply with legal obligations and enforce our terms and policies.</li>
+            </ul>
 
-  <h2>Information We Collect</h2>
-  <p>We may collect the following types of personal information:</p>
-  <ul>
-    <li><strong>Personal Identification Information:</strong> Name, email address, phone number, profile details, and any information you provide during registration.</li>
-    <li><strong>Usage Information:</strong> Data relating to your use of our platform including searches, service requests, communications, and preferences.</li>
-    <li><strong>Payment Information:</strong> Payment transaction details used for processing payments securely through third-party gateways.</li>
-    <li><strong>Device and Log Information:</strong> IP address, device type, operating system, browser type, and usage logs to enhance service performance.</li>
-  </ul>
+            <h2>Sharing and Disclosure</h2>
+            <p>We do not sell your personal data. We may share your information with:</p>
+            <ul>
+                <li><strong>Service Providers:</strong> Trusted third-party partners who assist in payment processing, service delivery, analytics, and hosting.</li>
+                <li><strong>Legal Compliance:</strong> Law enforcement, regulators, or required parties as per legal processes.</li>
+                <li><strong>With your consent:</strong> When you explicitly agree to share information for marketing or other purposes.</li>
+            </ul>
 
-  <h2>How We Use Your Information</h2>
-  <p>Your information is used for the following purposes:</p>
-  <ul>
-    <li>To provide and maintain our platform and services.</li>
-    <li>To process transactions and payments securely.</li>
-    <li>To communicate with you regarding service updates, bookings, support, and marketing (with your consent where required).</li>
-    <li>To improve our services, personalize user experience, and perform analytics.</li>
-    <li>To comply with legal obligations and enforce our terms and policies.</li>
-  </ul>
+            <h2>Data Security</h2>
+            <p>We implement reasonable technical and organizational measures to protect your personal information from unauthorized access, disclosure, alteration, and destruction. All payment transactions are handled through secure third-party gateways compliant with industry standards.</p>
+            
+            <div class="highlight-box">
+                <h3>Payment & Refund Information</h3>
+                <p>All payment transactions are processed securely through Razorpay's PCI-DSS compliant payment gateway. We do not store your full credit card details on our servers.</p>
+                <p><strong>Refund Processing:</strong> Approved refunds are processed within <strong>7-14 business days</strong> from the date of approval. The exact processing time may vary depending on your financial institution.</p>
+            </div>
 
-  <h2>Sharing and Disclosure</h2>
-  <p>We do not sell your personal data. We may share your information with:</p>
-  <ul>
-    <li><strong>Service Providers:</strong> Trusted third-party partners who assist in payment processing, service delivery, analytics, and hosting.</li>
-    <li><strong>Legal Compliance:</strong> Law enforcement, regulators, or required parties as per legal processes.</li>
-    <li><strong>With your consent:</strong> When you explicitly agree to share information for marketing or other purposes.</li>
-  </ul>
+            <h2>Your Choices and Rights</h2>
+            <ul>
+                <li>You may access, update, or request deletion of your personal data by contacting us.</li>
+                <li>You can opt-out of receiving marketing messages anytime.</li>
+                <li>We retain your data only as long as needed to provide services or comply with legal requirements.</li>
+            </ul>
 
-  <h2>Data Security</h2>
-  <p>We implement reasonable technical and organizational measures to protect your personal information from unauthorized access, disclosure, alteration, and destruction. All payment transactions are handled through secure third-party gateways compliant with industry standards.</p>
+            <h2>Cookies and Tracking Technologies</h2>
+            <p>Our website may use cookies and similar tracking technologies to enhance user experience. You can manage your cookie preferences through your browser settings.</p>
 
-  <h2>Your Choices and Rights</h2>
-  <ul>
-    <li>You may access, update, or request deletion of your personal data by contacting us.</li>
-    <li>You can opt-out of receiving marketing messages anytime.</li>
-    <li>We retain your data only as long as needed to provide services or comply with legal requirements.</li>
-  </ul>
+            <h2>Children’s Privacy</h2>
+            <p>Our platform is not intended for children under the age of 13. We do not knowingly collect personal information from children below this age. If you are a parent or guardian and believe your child has provided us information, please contact us immediately.</p>
 
-  <h2>Cookies and Tracking Technologies</h2>
-  <p>Our website may use cookies and similar tracking technologies to enhance user experience. You can manage your cookie preferences through your browser settings.</p>
+            <h2>Changes to This Privacy Policy</h2>
+            <p>We may update this privacy policy from time to time. We encourage you to review this page periodically. Changes will be posted here with an updated revision date.</p>
 
-  <h2>Children’s Privacy</h2>
-  <p>Our platform is not intended for children under the age of 13. We do not knowingly collect personal information from children below this age. If you are a parent or guardian and believe your child has provided us information, please contact us immediately.</p>
+            <div class="contact-info">
+                <h2>Contact Us</h2>
+                <p>If you have questions about this Privacy Policy, please contact us at:</p>
+                <p>Email: <a href="mailto:thakorrajta859@gmail.com">thakorrajta859@gmail.com</a></p>
+                <p>Phone: +91 9054896753</p>
+                <p>Address: Ahmedabad, Gujarat, India</p>
+            </div>
+        </div>
+        
+        <!-- Terms & Conditions -->
+        <div id="terms-policy" class="policy-container" style="display:none;">
+            <h2>Terms & Conditions</h2>
+            
+            <h2>Introduction</h2>
+            <p>
+                These Terms & Conditions ("Terms") govern your access to and use of the SkillBase mobile application, website, and related services (collectively, the "Platform").
+                By accessing or using SkillBase, you agree to comply with and be bound by these Terms. If you do not agree, please do not use our Platform.
+            </p>
 
-  <h2>Changes to This Privacy Policy</h2>
-  <p>We may update this privacy policy from time to time. We encourage you to review this page periodically. Changes will be posted here with an updated revision date.</p>
+            <h2>Definitions</h2>
+            <ul>
+                <li><strong>"We", "Us", "Our"</strong>: Refers to SkillBase and its operators.</li>
+                <li><strong>"You", "User"</strong>: Any person accessing or using our Platform, including customers and service providers.</li>
+                <li><strong>"Service Provider" or "Worker"</strong>: An independent skilled individual registered on SkillBase to offer services.</li>
+                <li><strong>"Customer"</strong>: A person using the Platform to request and hire services.</li>
+            </ul>
 
-  <h2>Contact Us</h2>
-  <p>If you have questions about this Privacy Policy, please contact us at:</p>
-  <p>Email: <a href="mailto:thakorrajta859@gmail.com">thakorrajta859@gmail.com</a></p>
-  <p>Phone: +91 9054896753</p>
-  <p>Address: Ahmedabad, Gujarat, India</p>
-</section>
+            <h2>User Eligibility</h2>
+            <p>
+                You must be at least 18 years old to use SkillBase. By using the Platform, you represent that you have the legal capacity to enter into a binding contract.
+            </p>
 
+            <h2>Services Provided</h2>
+            <p>
+                SkillBase acts as a platform to connect Customers with independent skilled Workers. We do not employ Workers, and are not responsible for the quality, safety, or legality of the services provided by them. All agreements for services are between you and the Worker.
+            </p>
 
-<footer>
-  &copy; 2025 SkillBase
-</footer>
+            <h2>User Responsibilities</h2>
+            <ul>
+                <li>Provide accurate, truthful, and up-to-date information when registering.</li>
+                <li>Maintain the confidentiality of your account login details.</li>
+                <li>Use the Platform only for lawful purposes and in accordance with these Terms.</li>
+                <li>Refrain from posting offensive, illegal, or fraudulent content.</li>
+            </ul>
+
+            <h2>Payments</h2>
+            <p>
+                Payments are processed through secure third-party payment gateways integrated into SkillBase. You agree to provide accurate payment information and authorize us to charge you for services booked. We are not liable for any payment disputes between Customers and Workers.
+            </p>
+
+            <h2>Cancellation & Refund Policy</h2>
+            <div class="highlight-box">
+                <h3>Refund Processing Time</h3>
+                <p>All refund requests, when approved, will be processed within <strong>7-14 business days</strong> from the date of approval. The exact processing time may vary depending on the payment method and financial institution involved.</p>
+                
+                <h3>Refund Eligibility</h3>
+                <ul>
+                    <li>Refunds are subject to the respective Worker's policy and require their approval</li>
+                    <li>SkillBase acts as a mediator but does not guarantee refunds</li>
+                    <li>Refunds may be issued in the following cases:
+                        <ul>
+                            <li>Service not provided as described</li>
+                            <li>Cancellation before service commencement</li>
+                            <li>Mutual agreement between Customer and Worker</li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <div class="refund-process">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h4>Submit Request</h4>
+                        <p>Customer submits refund request through the Platform</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h4>Worker Response</h4>
+                        <p>Worker has 48 hours to respond to the request</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h4>Approval</h4>
+                        <p>If approved, SkillBase initiates refund through Razorpay</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h4>Processing</h4>
+                        <p>Refund amount credited to original payment method</p>
+                    </div>
+                </div>
+                
+                <h3>Non-refundable Items</h3>
+                <ul>
+                    <li>Services already completed</li>
+                    <li>Platform convenience fees</li>
+                    <li>Any costs already incurred by the Worker</li>
+                </ul>
+                
+                <p><strong>Note:</strong> SkillBase is not obligated to provide refunds unless required by applicable law. All refunds are processed through Razorpay's secure payment gateway.</p>
+            </div>
+
+            <h2>Prohibited Activities</h2>
+            <ul>
+                <li>Misusing the Platform to spam or harass others.</li>
+                <li>Collecting personal information of other users without consent.</li>
+                <li>Impersonating any person or entity.</li>
+                <li>Attempting to bypass our systems or security measures.</li>
+            </ul>
+
+            <h2>Intellectual Property</h2>
+            <p>
+                All content, trademarks, logos, and materials on the Platform are owned by or licensed to SkillBase. You may not copy, distribute, or modify any part of the Platform without prior written permission.
+            </p>
+
+            <h2>Limitation of Liability</h2>
+            <p>
+                To the maximum extent permitted by law, SkillBase shall not be liable for any direct, indirect, incidental, or consequential damages arising from your use of the Platform or services obtained through it.
+            </p>
+
+            <h2>Termination</h2>
+            <p>
+                We may suspend or terminate your access to the Platform without notice if you violate these Terms or engage in illegal activities.
+            </p>
+
+            <h2>Changes to the Terms</h2>
+            <p>
+                We reserve the right to update or modify these Terms at any time. Continued use of the Platform after changes means you accept the updated Terms.
+            </p>
+
+            <h2>Governing Law</h2>
+            <p>
+                These Terms shall be governed by and construed in accordance with the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts in Ahmedabad, Gujarat.
+            </p>
+
+            <div class="contact-info">
+                <h2>Contact Us</h2>
+                <p>If you have any questions about these Terms & Conditions, contact us at:</p>
+                <p>Email: <a href="mailto:thakorrajta859@gmail.com">thakorrajta859@gmail.com</a></p>
+                <p>Phone: +91 9426927945</p>
+                <p>Address: Ahmedabad, Gujarat, India</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            &copy; 2025 SkillBase. All rights reserved.
+            <div class="razorpay-badge">Payment Processing by Razorpay</div>
+        </div>
+    </footer>
+    
+    <script>
+        function showPolicy(policyType) {
+            // Hide all policy containers
+            document.getElementById('privacy-policy').style.display = 'none';
+            document.getElementById('terms-policy').style.display = 'none';
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected policy and activate its button
+            if(policyType === 'privacy') {
+                document.getElementById('privacy-policy').style.display = 'block';
+                document.querySelectorAll('.tab-btn')[0].classList.add('active');
+            } else {
+                document.getElementById('terms-policy').style.display = 'block';
+                document.querySelectorAll('.tab-btn')[1].classList.add('active');
+            }
+            
+            // Scroll to top of policy section
+            document.querySelector('.policy-container').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Initialize the page with Privacy Policy visible
+        window.onload = function() {
+            showPolicy('privacy');
+        };
+    </script>
 </body>
 </html>
